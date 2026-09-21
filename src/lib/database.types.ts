@@ -15,8 +15,9 @@ export interface Database {
           name: string;
           created_at: string;
         };
-        Insert: never;
-        Update: never;
+        Insert: Record<string, never>;
+        Update: Record<string, never>;
+        Relationships: [];
       };
       household_members: {
         Row: {
@@ -25,8 +26,9 @@ export interface Database {
           role: HouseholdRole;
           created_at: string;
         };
-        Insert: never;
-        Update: never;
+        Insert: Record<string, never>;
+        Update: Record<string, never>;
+        Relationships: [];
       };
       purchases: {
         Row: {
@@ -68,23 +70,28 @@ export interface Database {
           extraction_confidence?: number | null;
         };
         Update: Partial<Database['public']['Tables']['purchases']['Insert']>;
+        Relationships: [];
       };
       merchant_policies: {
         Row: {
           merchant_key: string;
           default_return_days: number;
         };
-        Insert: never;
-        Update: never;
+        Insert: Record<string, never>;
+        Update: Record<string, never>;
+        Relationships: [];
       };
       category_defaults: {
         Row: {
           category: PurchaseCategory;
           default_warranty_months: number;
         };
-        Insert: never;
-        Update: never;
+        Insert: Record<string, never>;
+        Update: Record<string, never>;
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
   };
 }
